@@ -1,0 +1,114 @@
+.glass-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  position: relative;
+  background: #222222;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  color: #ffffff;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.45);
+  transition: transform 0.15s ease, opacity 0.15s ease;
+  overflow: hidden;
+}
+
+/* Diagonal specular reflection arcs — top-left and bottom-right */
+.glass-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  padding: 2px;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    /* ── bottom-right arc ── */
+    transparent 90deg,
+    rgba(255, 255, 255, 0.008) 95deg,
+    rgba(255, 255, 255, 0.02) 100deg,
+    rgba(255, 255, 255, 0.04) 105deg,
+    rgba(255, 255, 255, 0.08) 112deg,
+    rgba(255, 255, 255, 0.14) 120deg,
+    rgba(255, 255, 255, 0.24) 130deg,
+    rgba(255, 255, 255, 0.35) 145deg,
+    rgba(255, 255, 255, 0.24) 160deg,
+    rgba(255, 255, 255, 0.14) 170deg,
+    rgba(255, 255, 255, 0.08) 178deg,
+    rgba(255, 255, 255, 0.04) 185deg,
+    rgba(255, 255, 255, 0.02) 190deg,
+    rgba(255, 255, 255, 0.008) 195deg,
+    transparent 200deg,
+    /* gap */
+    transparent 260deg,
+    /* ── top-left arc ── */
+    rgba(255, 255, 255, 0.006) 265deg,
+    rgba(255, 255, 255, 0.015) 271deg,
+    rgba(255, 255, 255, 0.03) 277deg,
+    rgba(255, 255, 255, 0.06) 284deg,
+    rgba(255, 255, 255, 0.12) 291deg,
+    rgba(255, 255, 255, 0.18) 300deg,
+    rgba(255, 255, 255, 0.25) 310deg,
+    rgba(255, 255, 255, 0.18) 320deg,
+    rgba(255, 255, 255, 0.12) 329deg,
+    rgba(255, 255, 255, 0.06) 337deg,
+    rgba(255, 255, 255, 0.03) 343deg,
+    rgba(255, 255, 255, 0.015) 349deg,
+    rgba(255, 255, 255, 0.006) 355deg,
+    transparent 360deg
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Ambient glow: rises from bottom arc, blends into button */
+.glass-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+  right: 5%;
+  height: 55%;
+  background: radial-gradient(
+    ellipse 90% 100% at 52% 100%,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.07) 15%,
+    rgba(255, 255, 255, 0.04) 30%,
+    rgba(255, 255, 255, 0.018) 50%,
+    rgba(255, 255, 255, 0.006) 70%,
+    transparent 100%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.glass-btn:hover {
+  opacity: 0.9;
+  transform: scale(1.04);
+}
+
+.glass-btn:active {
+  transform: scale(0.96);
+}
+
+.pause-icon {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pause-bar {
+  width: 3.5px;
+  height: 15px;
+  background-color: #ffffff;
+  border-radius: 1.5px;
+}

@@ -1,0 +1,10 @@
+:root {
+  --theme-dark-1: #090a0d;
+  --theme-light: #16181d;
+  --theme-dark-2: #08090b;
+
+  --bg-main: #08090b;
+  --bg-left: #090a0d;
+  --bg-right: #08090b;
+  --border-color: rgba(255, 255, 255, 0.08);
+}

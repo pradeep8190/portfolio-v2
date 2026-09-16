@@ -1,0 +1,210 @@
+/* ════════════════════════════════════════════════════
+   RIGHT PANEL — WebGL Optical Dissolve & Distortion Stage
+   ════════════════════════════════════════════════════ */
+
+.right-panel {
+  flex: 1;
+  min-height: 100vh;
+  background-color: #08090b;
+  border-left: 0.5px solid rgba(255, 255, 255, 0.08);
+  box-sizing: border-box;
+  font-family: 'Ubuntu Sans', sans-serif;
+  font-weight: 400;
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Single Full-Width Pinned Top Header Bar ─────── */
+.rp-pinned-header {
+  position: sticky;
+  top: 0;
+  z-index: 95;
+  background: rgba(10, 11, 14, 0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
+  padding: 16px 36px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.rp-pinned-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
+  animation: rpHeaderFade 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes rpHeaderFade {
+  from {
+    opacity: 0;
+    transform: translateY(-3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rp-pinned-left-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.rp-pinned-index {
+  font-size: 1.12rem;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+}
+
+.rp-pinned-divider {
+  width: 16px;
+  height: 0.5px;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.rp-pinned-title {
+  font-size: 1.02rem;
+  font-weight: 500;
+  color: #ffffff;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+.rp-pinned-category {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.45);
+  margin-left: 4px;
+}
+
+.rp-pinned-right-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rp-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.06);
+  border: 0.5px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 3px 10px;
+}
+
+.rp-live-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.4);
+  animation: pulseDot 2.4s infinite ease-in-out;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.45; transform: scale(0.85); }
+}
+
+.rp-year-badge {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* ── Pinned Stage: WebGL Canvas Stays Fixed Full-Width in Viewport ── */
+.rp-stage-pinned {
+  position: sticky;
+  top: 56px;
+  width: 100%;
+  height: calc(100vh - 56px);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #08090b;
+}
+
+/* ── High-DPI WebGL Canvas (Edge-to-Edge, Zero Border) ── */
+.rp-webgl-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: #08090b;
+}
+
+/* ── Scroll Track: Invisible Height Track Driving Lenis ── */
+.rp-scroll-track {
+  width: 100%;
+  pointer-events: none;
+}
+
+/* ── Custom Floating Minimalist Pill Scrollbar ───── */
+.rp-pill-scrollbar-track {
+  position: fixed;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 160px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 99px;
+  z-index: 100;
+  cursor: pointer;
+  padding: 0;
+  transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease;
+}
+
+.rp-pill-scrollbar-track:hover {
+  width: 6px;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.rp-pill-scrollbar-thumb {
+  width: 100%;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.82);
+  border-radius: 99px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.35);
+  transition: transform 0.06s linear, background 0.2s ease, box-shadow 0.2s ease;
+  will-change: transform;
+}
+
+.rp-pill-scrollbar-track:hover .rp-pill-scrollbar-thumb {
+  background: #ffffff;
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.6);
+}
+
+/* ── Responsive Rules ────────────────────────────── */
+@media (max-width: 900px) {
+  .right-panel {
+    border-left: none;
+    border-top: 0.5px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .rp-pinned-header {
+    padding: 12px 20px;
+  }
+
+  .rp-stage-pinned {
+    top: 50px;
+    height: calc(100vh - 50px);
+  }
+}
