@@ -1,32 +1,35 @@
-# React + TypeScript + Vite
+# 💼 Pradeep — Creative Developer Portfolio v2
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+[![Live Demo](https://img.shields.io/badge/Demo-Live_Preview-brightgreen?style=for-the-badge&logo=vercel)](https://portfolio-2-delta-ebon.vercel.app)
+[![React](https://img.shields.io/badge/React-18-61DAFB?style=flat&logo=react)](https://react.dev/)
+[![Lenis](https://img.shields.io/badge/Scroll-Lenis-black?style=flat)](https://github.com/darkroomengineering/lenis)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat&logo=typescript)](https://www.typescriptlang.org/)
 
-Currently, two official plugins are available:
+> Personal portfolio of **Pradeep** — Creative Developer & AI Agent Specialist. Features a synchronized split-panel layout, Lenis smooth scrolling, interactive project cards, and minimalist dark aesthetics.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+🔗 **Live Portfolio**: [https://portfolio-2-delta-ebon.vercel.app](https://portfolio-2-delta-ebon.vercel.app)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🎨 Architectural Highlights
 
-## Expanding the Oxlint configuration
+- **Dual-Panel Synchronized View**: Sticky left profile & navigation with independent smoothly scrolled right project showcase.
+- **Lenis Smooth Scroll Engine**: Inertial momentum scroll with continuous velocity interpolation.
+- **Curated Typography**: Modern sans-serif hierarchy tailored for design engineering.
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+---
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+## 🚀 Quick Start
+
+```bash
+git clone https://github.com/pradeep8190/portfolio-v2.git
+cd portfolio-v2
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+---
+
+## 👤 Author
+
+**Pradeep** — [@pradeep8190](https://github.com/pradeep8190)
